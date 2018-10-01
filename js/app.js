@@ -1,5 +1,19 @@
+var allCards = document.querySelectorAll('.card');
+
+allCards.forEach(function(card) {
+  card.addEventListener('click', function(e) {
+    card.classList.add('open', 'show');
+  });
+});
+
+
+
+
+/*
+
+
  function createCards(listItem) {
-   document.createElement
+   var card = document.createElement("card", [options]);
 
  }
 
@@ -23,52 +37,34 @@ function shuffle(array) {
     return array;
 }
 
-function revealCard() {
-  card.addEventListener('click', function () {
-    //display symbol
-    //transform fade
-  });
-
-
-}
-
 function compareCards(cardA, cardB) {
   /*if (cardA == cardB) {
-    
+
   } else {
 
-  } */
+  }
 
 }
 
 function moveCounter() {
+}
 
+function timer(bool){
 
 }
 
-function timer(){
-
-
-}
 
 function gameOver() {
-
-  function popUp(){
-
+  var match = [];
+  if (match.length === 16) {
+    //display pop up
   }
-}
 
-function starRating() {
-
-
-}
-
-function reset() {
+function starRating() {}
 
 
-}
+function scoreCard() {}
 
-function scoreCard() {
+function reset() {}
 
-
-}
+*/
