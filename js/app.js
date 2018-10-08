@@ -1,5 +1,5 @@
 
-const cards = ['fa-coffee', 'fa-coffee',
+var cards = ['fa-coffee', 'fa-coffee',
             'fa-battery-full', 'fa-battery-full',
             'fa-laptop', 'fa-laptop',
             'fa-terminal', 'fa-terminal',
@@ -14,9 +14,10 @@ function generateCard(card) {
   return `<li class="card"><i class="fa ${card}"></i></li>`;
 };
 
+
 function initGame() {
-  const deck = document.querySelector('.deck');
-  const cardHTML = shuffle(cards).map(function(card) {
+  var deck = document.querySelector('.deck');
+  var cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
 
@@ -24,27 +25,32 @@ function initGame() {
 
 }
 
+
 initGame();
 
-const allCards = document.querySelectorAll('.card');
-const openCards = [];
+
+var allCards = document.querySelectorAll('.card');
+var openCards = [];
+
 
 allCards.forEach(function(card) {
   card.addEventListener('click', function(e) {
-    if (!card.classList.contains('open') || !card.classList.contains('show') || !card.classList.contains('match')) {
+    if (!card.classList.contains('open') && !card.classList.contains('show') & !card.classList.contains('match')) {
       openCards.push(card);
       card.classList.add('open', 'show');
-     }
-      if (openCards.lenth == 2) {
+
+        if (openCards.length == 2) {
           setTimeout(function() {
             openCards.forEach(function(card) {
               card.classList.remove('open', 'show');
-          });
-          openCards = [];
-      }, 800);
-    }
+            });
+            openCards = [];
+          }, 800);
+        }
+      }
   });
 });
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -64,8 +70,8 @@ function shuffle(array) {
 /*
 BELOW CODE ISN'T WORKING
 
-const allCards = document.querySelectorAll('.card');
-const openCards = [];
+var allCards = document.querySelectorAll('.card');
+var openCards = [];
 
 
 allCards.forEach(function(card) {
@@ -98,7 +104,7 @@ function compareCards(cardA, cardB) {
 }
 
 function gameOver() {
-  const match = [];
+  var match = [];
   if (match.length === 16) {
     //display pop up
   }
