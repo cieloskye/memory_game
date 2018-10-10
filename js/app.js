@@ -10,8 +10,24 @@ var cards = ['fa-coffee', 'fa-coffee',
 
 
 function generateCard(card) {
-  return `<li class="card"><i class="fa ${card}"></i></li>`;
+  return `<li class="card", data-card="${card}"><i class="fa ${card}"></i></li>`;
 };
+
+// Shuffle function from http://stackoverflow.com/a/2450976
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
 
 //initalize game
 function initGame() {
@@ -27,6 +43,7 @@ initGame();
 //flip functionality & timeout to flip over after two are selected
 var allCards = document.querySelectorAll('.card');
 var openCards = [];
+var matches = [];
 
 allCards.forEach(function(card) {
   card.addEventListener('click', function(e) {
@@ -39,9 +56,12 @@ allCards.forEach(function(card) {
 
       if (openCards.length == 2) {
         //add condition to prevent 3rd card from opening
-        if (openCards[0].dataset.card == openCards[1].dataset.card) { //error here openCard is not logging/card not defined
+        if (openCards[0].dataset.card == openCards[1].dataset.card) {
+          matches.push(openCards);
           openCards[0].classList.add('open', 'show', 'match');
           openCards[1].classList.add('open', 'show', 'match');
+
+          console.log('matches')
           openCards = [];
         } else {
           setTimeout(function() {
@@ -59,44 +79,29 @@ allCards.forEach(function(card) {
 
 
 
+//gameEnd functionality
 
-
-
-/*game end function
-var matches = [];
-
-function gameOver() {
-  if (matches.length === 16) {
-    //display pop up
+function gameEnd() {
+  if (matches.length == 8) {
+    clearInterval(interval);
+    finalTime = timer.innerHTML
+  } else {
+      clearInterval(interval);
+      finalTime = timer.innerHTML
   }
-*/
+}
+
 
 
 /*
-
 function starRating() {}
 
 function scoreCard() {}
 
-function reset() {}
-
 function moveCounter() {}
 
-function timer(bool){}
+function setTimer
+
+function reset button
+
 */
-
-
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
