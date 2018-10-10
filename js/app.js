@@ -56,6 +56,7 @@ allCards.forEach(function(card) {
 
       if (openCards.length == 2) {
         //add condition to prevent 3rd card from opening
+        moveCounter();
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
           matches.push(openCards);
           openCards[0].classList.add('open', 'show', 'match');
@@ -78,7 +79,14 @@ allCards.forEach(function(card) {
 });
 
 //move counter
+moves = 0;
+counter = document.getElementsByClassName("moves");
 
+function moveCounter( ) {
+  moves++
+  counter.innerHTML = moves;
+console.log(moves)
+}
 
 
 
