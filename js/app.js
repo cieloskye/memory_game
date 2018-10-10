@@ -40,7 +40,7 @@ function initGame() {
 
 initGame();
 
-//flip functionality & timeout to flip over after two are selected
+//flip & matching functionality
 var allCards = document.querySelectorAll('.card');
 var openCards = [];
 var matches = [];
@@ -77,10 +77,12 @@ allCards.forEach(function(card) {
   });
 });
 
+//move counter
+
+
 
 
 //gameEnd functionality
-
 function gameEnd() {
   if (matches.length == 8) {
     clearInterval(interval);
@@ -90,18 +92,3 @@ function gameEnd() {
       finalTime = timer.innerHTML
   }
 }
-
-
-
-/*
-function starRating() {}
-
-function scoreCard() {}
-
-function moveCounter() {}
-
-function setTimer
-
-function reset button
-
-*/
