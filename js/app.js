@@ -36,6 +36,9 @@ function initGame() {
     return generateCard(card);
   });
   deck.innerHTML = cardHTML.join('');
+  //reset Moves
+  moves = 0;
+
 }
 
 initGame();
@@ -55,14 +58,12 @@ allCards.forEach(function(card) {
           card.classList.add('open', 'show');
 
       if (openCards.length == 2) {
-        //add condition to prevent 3rd card from opening
         moveCounter();
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
           matches.push(openCards);
+          console.log(openCards);
           openCards[0].classList.add('open', 'show', 'match');
           openCards[1].classList.add('open', 'show', 'match');
-
-          console.log('matches')
           openCards = [];
         } else {
           setTimeout(function() {
@@ -78,15 +79,18 @@ allCards.forEach(function(card) {
   });
 });
 
-//move counter
+//move counter - need to add display functionality
 moves = 0;
 counter = document.getElementsByClassName("moves");
 
 function moveCounter( ) {
   moves++
   counter.innerHTML = moves;
-console.log(moves)
 }
+
+//star counter
+
+
 
 
 //gameEnd functionality
@@ -94,7 +98,6 @@ function gameEnd() {
   if (matches.length == 8) {
     clearInterval(interval);
     finalTime = timer.innerHTML
-  console.log('matches.length');
   } else {
       clearInterval(interval);
       finalTime = timer.innerHTML
