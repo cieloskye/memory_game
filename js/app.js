@@ -95,7 +95,7 @@ function gameTime() {
     document.getElementById('timer').innerHTML = minute + ':' + second;
     second++;
     if (second == 60) {
-      second = 0;
+      second = 00;
       minute++;
     }
     if (second < 0) {
