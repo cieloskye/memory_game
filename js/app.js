@@ -49,6 +49,8 @@ var matches = [];
 
 allCards.forEach(function(card) {
   card.addEventListener('click', function(e) {
+    //startTimer
+    gameTime();
     //so you can't open same card twice
     if (!card.classList.contains('open') &&
         !card.classList.contains('show') &&
@@ -83,11 +85,25 @@ moves = 0;
 function moveCounter( ) {
   moves++
   document.getElementById('moves').innerHTML = moves;
-  console.log(moves);
 }
 
-
-
+//timer
+function gameTime() {
+  var second = 00;
+  var minute = second * 60;
+  var time= setInterval (function() {
+    document.getElementById('timer').innerHTML = minute + ':' + second;
+    second++;
+    if (second == 60) {
+      second = 0;
+      minute++;
+    }
+    if (second < 0) {
+      clearInterval(time);
+    }
+  }, 1000);
+}
+console.log(gameTime);
 //gameEnd functionality
 function gameEnd() {
   if (matches.length == 8) {
