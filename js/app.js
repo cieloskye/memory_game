@@ -38,7 +38,6 @@ function initGame() {
   deck.innerHTML = cardHTML.join('');
   //reset Moves
   moves = 0;
-
 }
 
 initGame();
@@ -61,7 +60,6 @@ allCards.forEach(function(card) {
         moveCounter();
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
           matches.push(openCards);
-          console.log(openCards);
           openCards[0].classList.add('open', 'show', 'match');
           openCards[1].classList.add('open', 'show', 'match');
           openCards = [];
@@ -81,15 +79,12 @@ allCards.forEach(function(card) {
 
 //move counter - need to add display functionality
 moves = 0;
-counter = document.getElementsByClassName("moves");
 
 function moveCounter( ) {
   moves++
-  counter.innerHTML = moves;
+  document.getElementById('moves').innerHTML = moves;
+  console.log(moves);
 }
-
-//star counter
-
 
 
 
