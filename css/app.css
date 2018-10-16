@@ -111,3 +111,9 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.btn {
+  width: 100%;
+  cursor: pointer;
+  padding: 5px 10px;
+}

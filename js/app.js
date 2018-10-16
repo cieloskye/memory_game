@@ -103,14 +103,26 @@ function gameTime() {
     }
   }, 1000);
 }
-console.log(gameTime);
+
+//reset button
+function reset () {
+  window.location.reload();
+}
+
+
+
+
+//star rating
+
+//congrats popup
+
 //gameEnd functionality
 function gameEnd() {
   if (matches.length == 8) {
     clearInterval(interval);
-    finalTime = timer.innerHTML
+    gameTime = time.innerHTML
   } else {
       clearInterval(interval);
-      finalTime = timer.innerHTML
+      gameTime = time.innerHTML
   }
 }
