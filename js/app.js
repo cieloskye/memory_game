@@ -62,6 +62,7 @@ allCards.forEach(function(card) {
         moveCounter();
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
           matches.push(openCards);
+          console.log(matches.length);
           openCards[0].classList.add('open', 'show', 'match');
           openCards[1].classList.add('open', 'show', 'match');
           openCards = [];
@@ -111,12 +112,16 @@ function reset () {
 
 //star rating
 function stars () {
-  if (moves >= 10) {
-    //1 star
-  } else if ( moves >= 16) {
-    //two starts
+  if (moves == 16) {
+     document.getElementById('3').classList.remove('fa fa-star');
+     document.getElementById('3').classList.add('fa fa-star-o');
+     console.log('3 works')
+  } else if ( moves >= 24) {
+    document.getElementById('2').classList.remove('fa fa-star');
+    document.getElementById('2').classList.add('fa fa-star-o');
+    console.log('2 works')
   } else {
-    //1 star
+    console.log('3 stars?');
   }
 }
 
