@@ -109,10 +109,17 @@ function reset () {
   window.location.reload();
 }
 
-
-
-
 //star rating
+function stars () {
+  if (moves >= 10) {
+    //1 star
+  } else if ( moves >= 16) {
+    //two starts
+  } else {
+    //1 star
+  }
+}
+
 
 //congrats popup
 
