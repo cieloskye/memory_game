@@ -62,7 +62,6 @@ allCards.forEach(function(card) {
         moveCounter();
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
           matches.push(openCards);
-          console.log(matches.length);
           openCards[0].classList.add('open', 'show', 'match');
           openCards[1].classList.add('open', 'show', 'match');
           openCards = [];
@@ -92,7 +91,7 @@ function moveCounter( ) {
 function gameTime() {
   var second = 00;
   var minute = second * 60;
-  var time= setInterval (function() {
+  var time = setInterval (function() {
     document.getElementById('timer').innerHTML = minute + ':' + second;
     second++;
     if (second == 60) {
@@ -112,29 +111,39 @@ function reset () {
 
 //star rating
 function stars () {
-  if (moves == 16) {
+  if (moves >= 12) {
+    console.log('3 stars');
+  } else if (moves >= 20) {
      document.getElementById('3').classList.remove('fa fa-star');
      document.getElementById('3').classList.add('fa fa-star-o');
-     console.log('3 works')
+     console.log ("2 stars");
   } else if ( moves >= 24) {
     document.getElementById('2').classList.remove('fa fa-star');
     document.getElementById('2').classList.add('fa fa-star-o');
-    console.log('2 works')
+    console.log('1 star');
   } else {
-    console.log('3 stars?');
+    document.getElementById('1').classList.add('fa fa-star-o');
+    console.log('no stars');
   }
 }
 
 
-//congrats popup
+
 
 //gameEnd functionality
+var win = document.getElementById('won');
+var lose = document.getElementById('lost');
+
 function gameEnd() {
-  if (matches.length == 8) {
+  if (openCards.length === 16) {
+    alert("Congratulations! You matched all 8 pairs.");
+    //stop timer
     clearInterval(interval);
     gameTime = time.innerHTML
+
   } else {
-      clearInterval(interval);
-      gameTime = time.innerHTML
+    console.log(lose);
   }
 }
+
+gameEnd();
