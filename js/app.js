@@ -1,4 +1,4 @@
-//dynamically generate cards
+//CREATE CARDS
 var cards = ['fa-coffee', 'fa-coffee',
             'fa-battery-full', 'fa-battery-full',
             'fa-laptop', 'fa-laptop',
@@ -13,7 +13,7 @@ function generateCard(card) {
   return `<li class="card", data-card="${card}"><i class="fa ${card}"></i></li>`;
 };
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+//SHUFFLE CARDS function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -29,7 +29,7 @@ function shuffle(array) {
 }
 
 
-//initalize game
+//START GAME
 function initGame() {
   var deck = document.querySelector('.deck');
   var cardHTML = shuffle(cards).map(function(card) {
@@ -42,7 +42,7 @@ function initGame() {
 
 initGame();
 
-//flip & matching functionality
+//FLIP & MATCH
 var allCards = document.querySelectorAll('.card');
 var openCards = [];
 var matches = [];
@@ -79,7 +79,7 @@ allCards.forEach(function(card) {
   });
 });
 
-//move counter - need to add display functionality
+//MOVE COUNTER
 moves = 0;
 
 function moveCounter( ) {
@@ -87,7 +87,7 @@ function moveCounter( ) {
   document.getElementById('moves').innerHTML = moves;
 }
 
-//timer
+//TIMER
 function gameTime() {
   var second = 00;
   var minute = second * 60;
@@ -104,12 +104,12 @@ function gameTime() {
   }, 1000);
 }
 
-//reset button
+//RESET BUTTON
 function reset () {
   window.location.reload();
 }
 
-//star rating
+//STAR RATING
 function stars () {
   if (moves > 8 && moves < 16) {
     console.log('3 stars');
@@ -134,15 +134,17 @@ function stars () {
   }
 }
 
-stars(); // not sure where to call this funtion yet
+
+//END OF GAME
 
 
-//gameEnd functionality
+/*
 var win = document.getElementById('won');
 var lose = document.getElementById('lost');
-var finalTime = time.innerHTML
+var finalTime = timer.innerHTML
 
-document.addEventListener('openCards.length === 16', function gameEnd() {
+//document.addEventListener('openCards.length === 16',   ...)
+function gameEnd() {
   if (openCards.length === 16) {
     alert("Congratulations! You matched all 8 pairs."); //Display time, stars & moves
     //stopTimer();   clearInterval(interval);
@@ -150,4 +152,6 @@ document.addEventListener('openCards.length === 16', function gameEnd() {
   } else if (openCards.length !== 16) {
       alert("Better luck next time!");
   }
-});
+};
+
+*/
