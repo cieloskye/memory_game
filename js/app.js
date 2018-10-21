@@ -134,19 +134,19 @@ function stars () {
   }
 }
 
+stars(); // not sure where to call this funtion yet
 
 
 //gameEnd functionality
 var win = document.getElementById('won');
 var lose = document.getElementById('lost');
+var finalTime = time.innerHTML
 
 document.addEventListener('openCards.length === 16', function gameEnd() {
   if (openCards.length === 16) {
-    alert("Congratulations! You matched all 8 pairs.");
-    //stopTimer();
-    clearInterval(interval);
-    gameTime = time.innerHTML
-    stars();
+    alert("Congratulations! You matched all 8 pairs."); //Display time, stars & moves
+    //stopTimer();   clearInterval(interval);
+
   } else if (openCards.length !== 16) {
       alert("Better luck next time!");
   }
