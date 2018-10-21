@@ -111,22 +111,28 @@ function reset () {
 
 //star rating
 function stars () {
-  if (moves >= 12) {
+  if (moves > 8 && moves < 16) {
     console.log('3 stars');
-  } else if (moves >= 20) {
-     document.getElementById('3').classList.remove('fa fa-star');
-     document.getElementById('3').classList.add('fa fa-star-o');
+  } else if (moves == 16 && moves < 24) {
+     document.getElementById('3').classList.remove('fa-star');
+     document.getElementById('3').classList.add('fa-star-o');
      console.log ("2 stars");
-  } else if ( moves >= 24) {
-    document.getElementById('2').classList.remove('fa fa-star');
-    document.getElementById('2').classList.add('fa fa-star-o');
+  } else if (moves > 24 && moves < 33) {
+    document.getElementById('3').classList.remove('fa-star');
+    document.getElementById('3').classList.add('fa-star-o');
+    document.getElementById('2').classList.remove('fa-star');
+    document.getElementById('2').classList.add('fa-star-o');
     console.log('1 star');
   } else {
-    document.getElementById('1').classList.add('fa fa-star-o');
+    document.getElementById('3').classList.remove('fa-star');
+    document.getElementById('3').classList.add('fa-star-o');
+    document.getElementById('2').classList.remove('fa-star');
+    document.getElementById('2').classList.add('fa-star-o');
+    document.getElementById('1').classList.remove('fa-star');
+    document.getElementById('1').classList.add('fa-star-o');
     console.log('no stars');
   }
 }
-
 
 
 
@@ -134,16 +140,14 @@ function stars () {
 var win = document.getElementById('won');
 var lose = document.getElementById('lost');
 
-function gameEnd() {
+document.addEventListener('openCards.length === 16', function gameEnd() {
   if (openCards.length === 16) {
     alert("Congratulations! You matched all 8 pairs.");
-    //stop timer
+    //stopTimer();
     clearInterval(interval);
     gameTime = time.innerHTML
-
-  } else {
-    console.log(lose);
+    stars();
+  } else if (openCards.length !== 16) {
+      alert("Better luck next time!");
   }
-}
-
-gameEnd();
+});
