@@ -75,7 +75,7 @@ allCards.forEach(function(card) {
         }
       }
       //ENDS GAME
-      if (matches.length == 8) {
+      if (matches.length == 1) {
             console.log('gammmme');
             stars ();
             //stop timer
@@ -93,29 +93,37 @@ function moveCounter( ) {
 }
 
 //TIMER
-
 var time = document.getElementById('timer')
 
 function gameTime() {
   var second = 00;
   var minute = second * 60;
-  setInterval (function() {
-    time.innerHTML = minute + ':' + second;
+  setTimeout (function() {
     second++;
     if (second == 60) {
       second = 00;
       minute++;
     }
     if (second < 0) {
-      clearInterval(time);
+      clearTimeout(time);
     }
+    time.innerHTML = minute + ':' + second;
   }, 1000);
+}
+
+function finalT() {
+  
+}
+
+function stopT() {
+  clearTimeout(time);
 }
 
 //RESET BUTTON
 function reset () {
   window.location.reload();
 }
+
 
 //STAR RATING
 function stars () {
@@ -141,31 +149,6 @@ function stars () {
     console.log('no stars');
   }
 }
-
-
-
-
-
-
-
-
-
-
-/*
-
-function endGame() {
-  allCards.forEach(function(g) {
-    if (card.classList.contains('open') &&
-        card.classList.contains('show') &&
-        card.classList.contains('match')) {
-          console.log('gammmme');
-          clearInterval(interval);
-        }
-    })
-  }
-
-endGame();
-
 
 
 /*
