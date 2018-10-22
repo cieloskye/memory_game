@@ -57,7 +57,6 @@ allCards.forEach(function(card) {
         !card.classList.contains('match')) {
           openCards.push(card);
           card.classList.add('open', 'show');
-
       if (openCards.length == 2) {
         moveCounter();
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
@@ -70,14 +69,20 @@ allCards.forEach(function(card) {
             openCards.forEach(function(card) {
               card.classList.remove('open', 'show');
             });
-
             openCards = [];
             }, 800);
           }
         }
       }
+      //ENDS GAME
+      if (matches.length == 8) {
+            console.log('gammmme');
+            stars ();
+            //stop timer
+      }
   });
 });
+
 
 //MOVE COUNTER
 moves = 0;
@@ -88,11 +93,14 @@ function moveCounter( ) {
 }
 
 //TIMER
+
+var time = document.getElementById('timer')
+
 function gameTime() {
   var second = 00;
   var minute = second * 60;
-  var time = setInterval (function() {
-    document.getElementById('timer').innerHTML = minute + ':' + second;
+  setInterval (function() {
+    time.innerHTML = minute + ':' + second;
     second++;
     if (second == 60) {
       second = 00;
@@ -135,7 +143,29 @@ function stars () {
 }
 
 
-//END OF GAME
+
+
+
+
+
+
+
+
+/*
+
+function endGame() {
+  allCards.forEach(function(g) {
+    if (card.classList.contains('open') &&
+        card.classList.contains('show') &&
+        card.classList.contains('match')) {
+          console.log('gammmme');
+          clearInterval(interval);
+        }
+    })
+  }
+
+endGame();
+
 
 
 /*
