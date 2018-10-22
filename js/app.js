@@ -78,7 +78,7 @@ allCards.forEach(function(card) {
       if (matches.length == 1) {
             console.log('gammmme');
             stars ();
-            //stop timer
+            stopT();
       }
   });
 });
@@ -112,7 +112,7 @@ function gameTime() {
 }
 
 function finalT() {
-  
+
 }
 
 function stopT() {
