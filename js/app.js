@@ -74,13 +74,28 @@ allCards.forEach(function(card) {
         }
       }
       //ENDS GAME
-      /*if (matches.length == 8) {
+      /* if (matches.length == 8) {
             console.log('gammmme');
             stars ();
-            stopT();
       } */
   });
 });
+
+//TIMER
+var second = 00;
+var minute = second * 60;
+var timer = document.getElementById('timer');
+
+function gameTime() {
+  setInterval (function() {
+    timer.innerHTML = minute + ':' + second;
+    second++;
+    if (second == 60) {
+      second = 00;
+      minute++;
+    }
+  }, 1000);
+}
 
 
 //MOVE COUNTER
@@ -89,10 +104,17 @@ moves = 0;
 function moveCounter( ) {
   moves++
   document.getElementById('moves').innerHTML = moves;
+  if(moves == 1) {
+    second == 00;
+    minute == 00;
+    gameTime();
+  }
 }
 
-//TIMER
-var time = document.getElementById('timer')
+
+
+
+/*var time = document.getElementById('timer')
 
 function gameTime() {
   var second = 00;
@@ -112,7 +134,7 @@ function gameTime() {
 }
 
 
-/*function finalT() {
+function finalT() {
 }
 
 function stopT() {
