@@ -49,7 +49,6 @@ var matches = [];
 
 allCards.forEach(function(card) {
   card.addEventListener('click', function(e) {
-    //startTimer
     gameTime();
     //so you can't open same card twice
     if (!card.classList.contains('open') &&
@@ -75,11 +74,11 @@ allCards.forEach(function(card) {
         }
       }
       //ENDS GAME
-      if (matches.length == 1) {
+      /*if (matches.length == 8) {
             console.log('gammmme');
             stars ();
             stopT();
-      }
+      } */
   });
 });
 
@@ -99,6 +98,7 @@ function gameTime() {
   var second = 00;
   var minute = second * 60;
   setTimeout (function() {
+    document.getElementById('timer').innerHTML = minute + ':' + second;
     second++;
     if (second == 60) {
       second = 00;
@@ -107,17 +107,18 @@ function gameTime() {
     if (second < 0) {
       clearTimeout(time);
     }
-    time.innerHTML = minute + ':' + second;
   }, 1000);
+  console.log(time);
 }
 
-function finalT() {
 
+/*function finalT() {
 }
 
 function stopT() {
-  clearTimeout(time);
+  clearTimeout(timer);
 }
+*/
 
 //RESET BUTTON
 function reset () {
@@ -127,19 +128,19 @@ function reset () {
 
 //STAR RATING
 function stars () {
-  if (moves > 8 && moves < 16) {
+  if (moves > 8 && moves < 13) {
     console.log('3 stars');
-  } else if (moves == 16 && moves < 24) {
+  } else if (moves > 13 && moves < 22) {
      document.getElementById('3').classList.remove('fa-star');
      document.getElementById('3').classList.add('fa-star-o');
      console.log ("2 stars");
-  } else if (moves > 24 && moves < 33) {
+  } else if (moves > 22 && moves < 30) {
     document.getElementById('3').classList.remove('fa-star');
     document.getElementById('3').classList.add('fa-star-o');
     document.getElementById('2').classList.remove('fa-star');
     document.getElementById('2').classList.add('fa-star-o');
     console.log('1 star');
-  } else {
+  } else if (moves > 30){
     document.getElementById('3').classList.remove('fa-star');
     document.getElementById('3').classList.add('fa-star-o');
     document.getElementById('2').classList.remove('fa-star');
@@ -149,22 +150,3 @@ function stars () {
     console.log('no stars');
   }
 }
-
-
-/*
-var win = document.getElementById('won');
-var lose = document.getElementById('lost');
-var finalTime = timer.innerHTML
-
-//document.addEventListener('openCards.length === 16',   ...)
-function gameEnd() {
-  if (openCards.length === 16) {
-    alert("Congratulations! You matched all 8 pairs."); //Display time, stars & moves
-    //stopTimer();   clearInterval(interval);
-
-  } else if (openCards.length !== 16) {
-      alert("Better luck next time!");
-  }
-};
-
-*/
