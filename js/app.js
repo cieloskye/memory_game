@@ -78,6 +78,7 @@ allCards.forEach(function(card) {
             if (matches.length == 2) {
               console.log(matches.length);
               stars();
+              clearInterval(interval);
             }
 
         }
@@ -155,7 +156,6 @@ function stars () {
 
 /*
 TO DO:
-Stop timer @ 16 matches
     Optional ?End game at time limit
 Fix Timer Format to be 00:00
 Add modal popups or alerts at Game End w/ time, stars & moves & play again?
