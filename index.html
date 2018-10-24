@@ -15,7 +15,7 @@
             <h1>Programmer's Matching Game</h1>
         </header>
 
-        <section class="score-panel">
+        <section class="allScores">
         	<ul class="stars">
         		<li><i class="fa fa-star" id="1"></i></li>
         		<li><i class="fa fa-star" id="2"></i></li>
@@ -24,7 +24,7 @@
 
         	   Moves: <span id="moves">0</span>
 
-             Timer: <span id="timer">0:0</span>
+             Time: <span id="timer">0:0</span>
 
           <div class="restart" id="reset">
             <button class="btn" onclick="reset ()">
@@ -37,13 +37,13 @@
     </div>
 
 
-    <div id="popup">
-
-      <div id="won" class="modal">
+    <div>
+      <div id="won" class="modal-in">
           <span class="close">&times;</span>
           <h2>"Way to go! You got matched all 8 pairs!"</h2>
+          <h2 id="score">You earned [] stars, for making [] moves in []!</h2>
       </div>
-      
+
 <!--
       <div id="lost" class="modal">
         <h2>"Better luck next time!"</h2>

@@ -75,7 +75,7 @@ allCards.forEach(function(card) {
             openCards = [];
           }, 800);
           }
-            if (matches.length == 2) { //change to 8 - 2 is for easy testing
+            if (matches.length == 2) { //change to 8 - temp for easy testing
               console.log(matches.length);
               stars();
               clearInterval(interval);
@@ -92,6 +92,7 @@ allCards.forEach(function(card) {
 var second = 0;
 var minute = second / 60;
 var interval;
+var time = timer.innerHTML
 
 function gameTime() {
   interval = setInterval (function() {
@@ -107,6 +108,7 @@ function gameTime() {
 
 //MOVE COUNTER
 moves = 0;
+var moves = document.getElementById('moves').innerHTML
 
 function moveCounter( ) {
   moves++
@@ -146,17 +148,21 @@ function stars () {
     document.getElementById('2').classList.add('fa-star-o');
     document.getElementById('1').classList.remove('fa-star');
     document.getElementById('1').classList.add('fa-star-o');
-    console.log('no stars');
+    console.log('None :()');
   }
 }
 
 
 //Congrats Modal
-var modal = document.getElementById('won');
+var won = document.getElementById('won');
 var close = document.getElementsByClassName('close');
+var score = document.getElementById('score');
+var allScores = document.getElementsByClassName('allScores');
+
 
 function congrats() {
-  modal.style.display = "block";
+  won.style.display = "block";
+  score.innerHTML = allScores;
 }
 
 close.onclick = function() {
