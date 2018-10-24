@@ -73,7 +73,7 @@ allCards.forEach(function(card) {
               card.classList.remove('open', 'show');
             });
             openCards = [];
-            }, 800);
+          }, 800);
           }
         }
       }
@@ -96,13 +96,15 @@ function gameTime() {
   }, 1000);
 }
 
+
+
 //MOVE COUNTER
 moves = 0;
 
 function moveCounter( ) {
   moves++
   document.getElementById('moves').innerHTML = moves;
-  if(moves === 1) {
+  if (moves === 1) {
     second == 0;
     minute == 0;
     gameTime();
@@ -145,13 +147,20 @@ function stars () {
 
 //GAME OVER
 function end() {
-  if (matches == 1) {
-    console.log('gammmme');
+  if (matches.length == 2) {
+    console.log(matches.length);
     stars();
-    if(moves === 1) {
-      second == 0;
-      minute == 0;
-      gameTime();
-    }
   }
 }
+
+
+
+
+/*
+TO DO:
+Stop timer @ 16 matches
+    Optional ?End game at time limit
+Fix Timer Format to be 00:00
+Add modal popups or alerts at Game End w/ time, stars & moves & play again?
+Update ReadMe
+Review code & comments against style guide */
