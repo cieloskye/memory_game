@@ -30,14 +30,19 @@ function shuffle(array) {
 
 
 //START GAME
+var timer = document.getElementById('timer');
+
 function initGame() {
   var deck = document.querySelector('.deck');
   var cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
   deck.innerHTML = cardHTML.join('');
-  //reset Moves
+  //reset moves
   moves = 0;
+  //reset timer
+  timer.innerHTML = "0:0";
+  clearInterval(interval);
 }
 
 initGame();
@@ -49,7 +54,6 @@ var matches = [];
 
 allCards.forEach(function(card) {
   card.addEventListener('click', function(e) {
-    gameTime();
     //so you can't open same card twice
     if (!card.classList.contains('open') &&
         !card.classList.contains('show') &&
@@ -73,30 +77,24 @@ allCards.forEach(function(card) {
           }
         }
       }
-      //ENDS GAME
-      /* if (matches.length == 8) {
-            console.log('gammmme');
-            stars ();
-      } */
   });
 });
 
 //TIMER
-var second = 00;
-var minute = second * 60;
-var timer = document.getElementById('timer');
+var second = 0;
+var minute = second / 60;
+var interval;
 
 function gameTime() {
-  setInterval (function() {
+  interval = setInterval (function() {
     timer.innerHTML = minute + ':' + second;
     second++;
     if (second == 60) {
-      second = 00;
+      second = 0;
       minute++;
     }
   }, 1000);
 }
-
 
 //MOVE COUNTER
 moves = 0;
@@ -104,43 +102,13 @@ moves = 0;
 function moveCounter( ) {
   moves++
   document.getElementById('moves').innerHTML = moves;
-  if(moves == 1) {
-    second == 00;
-    minute == 00;
+  if(moves === 1) {
+    second == 0;
+    minute == 0;
     gameTime();
   }
 }
 
-
-
-
-/*var time = document.getElementById('timer')
-
-function gameTime() {
-  var second = 00;
-  var minute = second * 60;
-  setTimeout (function() {
-    document.getElementById('timer').innerHTML = minute + ':' + second;
-    second++;
-    if (second == 60) {
-      second = 00;
-      minute++;
-    }
-    if (second < 0) {
-      clearTimeout(time);
-    }
-  }, 1000);
-  console.log(time);
-}
-
-
-function finalT() {
-}
-
-function stopT() {
-  clearTimeout(timer);
-}
-*/
 
 //RESET BUTTON
 function reset () {
@@ -170,5 +138,20 @@ function stars () {
     document.getElementById('1').classList.remove('fa-star');
     document.getElementById('1').classList.add('fa-star-o');
     console.log('no stars');
+  }
+}
+
+
+
+//GAME OVER
+function end() {
+  if (matches == 1) {
+    console.log('gammmme');
+    stars();
+    if(moves === 1) {
+      second == 0;
+      minute == 0;
+      gameTime();
+    }
   }
 }
