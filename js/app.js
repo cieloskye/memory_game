@@ -79,13 +79,13 @@ allCards.forEach(function(card) {
               console.log(matches.length);
               stars();
               clearInterval(interval);
+              congrats();
             }
 
         }
       }
   });
 });
-
 
 
 //TIMER
@@ -103,7 +103,6 @@ function gameTime() {
     }
   }, 1000);
 }
-
 
 
 //MOVE COUNTER
@@ -152,7 +151,17 @@ function stars () {
 }
 
 
+//Congrats Modal
+var modal = document.getElementById('won');
+var close = document.getElementsByClassName('close');
 
+function congrats() {
+  modal.style.display = "block";
+}
+
+close.onclick = function() {
+  modal.style.display = "none";
+}
 
 /*
 TO DO:
