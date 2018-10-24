@@ -117,3 +117,11 @@ h1 {
   cursor: pointer;
   padding: 5px 10px;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  max-width: 100%;
+  overflow: auto;
+  z-index: 1;
+}

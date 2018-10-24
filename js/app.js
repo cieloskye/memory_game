@@ -75,7 +75,7 @@ allCards.forEach(function(card) {
             openCards = [];
           }, 800);
           }
-            if (matches.length == 2) {
+            if (matches.length == 2) { //change to 8 - 2 is for easy testing
               console.log(matches.length);
               stars();
               clearInterval(interval);
