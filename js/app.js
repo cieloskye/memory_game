@@ -75,10 +75,17 @@ allCards.forEach(function(card) {
             openCards = [];
           }, 800);
           }
+            if (matches.length == 2) {
+              console.log(matches.length);
+              stars();
+            }
+
         }
       }
   });
 });
+
+
 
 //TIMER
 var second = 0;
@@ -140,16 +147,6 @@ function stars () {
     document.getElementById('1').classList.remove('fa-star');
     document.getElementById('1').classList.add('fa-star-o');
     console.log('no stars');
-  }
-}
-
-
-
-//GAME OVER
-function end() {
-  if (matches.length == 2) {
-    console.log(matches.length);
-    stars();
   }
 }
 
