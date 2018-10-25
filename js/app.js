@@ -75,7 +75,7 @@ allCards.forEach(function(card) {
             openCards = [];
           }, 800);
           }
-            if (matches.length == 0) { //change to 8 - temp for easy testing
+            if (matches.length == 8) {
               console.log(matches.length);
               stars();
               clearInterval(interval);
@@ -156,7 +156,7 @@ var score = document.getElementById('score');
 var totalStars = document.querySelector('.stars li').innerHTML;
 
 function congrats() {
-  if (matches.length == 0) {
+  if (matches.length == 8) {
     modal.style.display = 'block';
     score.innerHTML =   'Time: ' + time + '<br/>' +
                         'Moves: ' + moves + '<br/>' +
@@ -169,11 +169,3 @@ function congrats() {
 span.onclick = function() {
     modal.style.display = "none";
 }
-
-
-/* Future Improvements
-Changes match.length to 8 !!!!
-Double check rubric
-Fix Timer Format to be 00:00
-Add time limit
-Update ReadMe */
