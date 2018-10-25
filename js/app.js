@@ -29,7 +29,7 @@ function shuffle(array) {
 }
 
 
-//START GAME
+//START GAME Inspired by Udacity Webinar https://www.youtube.com/watch?v=_rUH-sEs68Y
 var timer = document.getElementById('timer');
 
 function initGame() {
@@ -47,7 +47,7 @@ function initGame() {
 
 initGame();
 
-//FLIP & MATCH
+//FLIP & MATCH Inspired by Udacity Webinar https://www.youtube.com/watch?v=_rUH-sEs68Y
 var allCards = document.querySelectorAll('.card');
 var openCards = [];
 var matches = [];
