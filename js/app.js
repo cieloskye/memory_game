@@ -128,7 +128,7 @@ function reset () {
 
 
 //STAR RATING
-//var totalStars = document.getElementsByClassName('stars').
+var totalStars = document.querySelector('.stars').innerHTML;
 
 function stars() {
   if (moves > 8 && moves < 13) {
@@ -153,11 +153,8 @@ function stars() {
 
 //Congrats Modal
 var modal = document.getElementById('modalTime');
-var close = document.getElementsByClassName('close');
+var span = document.getElementsByClassName('close')[0];
 var score = document.getElementById('score');
-
-//var allScores = document.getElementsByClassName('allScores');
-
 
 function congrats() {
   if (matches.length == 0) {
@@ -168,17 +165,15 @@ function congrats() {
   }
 }
 
-/* close.onclick = function() {
-  modal.style.display = "none";
+//close button
+span.onclick = function() {
+    modal.style.display = "none";
 }
 
 
 
-/*
-TO DO:
-Modal popups w/ stars & close button.
-Optional ?End game at time limit
+/* Future Improvements
 Fix Timer Format to be 00:00
-
-Update ReadMe
-Review code & comments against style guide */
+Put stars on 1 line
+Add time limit
+Update ReadMe */
