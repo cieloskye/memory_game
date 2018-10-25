@@ -128,21 +128,19 @@ function reset () {
 
 
 //STAR RATING
-var totalStars = document.getElementsByClassName('stars').push();
+//var totalStars = document.getElementsByClassName('stars').
 
-function stars () {
+function stars() {
   if (moves > 8 && moves < 13) {
     totalStars = 3;
   } else if (moves > 13 && moves < 22) {
      document.getElementById('3').classList.remove('fa-star');
      document.getElementById('3').classList.add('fa-star-o');
-     totalStars = 2;
   } else if (moves > 22 && moves < 30) {
     document.getElementById('3').classList.remove('fa-star');
     document.getElementById('3').classList.add('fa-star-o');
     document.getElementById('2').classList.remove('fa-star');
     document.getElementById('2').classList.add('fa-star-o');
-    totalStars = 1;
   } else if (moves > 30){
     document.getElementById('3').classList.remove('fa-star');
     document.getElementById('3').classList.add('fa-star-o');
@@ -150,7 +148,6 @@ function stars () {
     document.getElementById('2').classList.add('fa-star-o');
     document.getElementById('1').classList.remove('fa-star');
     document.getElementById('1').classList.add('fa-star-o');
-    totalStars = 0;
   }
 }
 
@@ -171,7 +168,7 @@ function congrats() {
   }
 }
 
-close.onclick = function() {
+/* close.onclick = function() {
   modal.style.display = "none";
 }
 
@@ -179,8 +176,7 @@ close.onclick = function() {
 
 /*
 TO DO:
-Modal popups w/ time, stars & moves & play again?
-
+Modal popups w/ stars & close button.
 Optional ?End game at time limit
 Fix Timer Format to be 00:00
 
