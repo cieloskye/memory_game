@@ -128,8 +128,6 @@ function reset () {
 
 
 //STAR RATING
-var totalStars = document.querySelector('.stars').innerHTML;
-
 function stars() {
   if (moves > 8 && moves < 13) {
     totalStars = 3;
@@ -155,13 +153,15 @@ function stars() {
 var modal = document.getElementById('modalTime');
 var span = document.getElementsByClassName('close')[0];
 var score = document.getElementById('score');
+var totalStars = document.querySelector('.stars li').innerHTML;
 
 function congrats() {
   if (matches.length == 0) {
-  modal.style.display = 'block';
-  score.innerHTML =  'Time: ' + time + '<br/>' +
-                     'Moves: ' + moves + '<br/>' +
-                     'Stars: ' + totalStars;
+    modal.style.display = 'block';
+    score.innerHTML =   'Time: ' + time + '<br/>' +
+                        'Moves: ' + moves + '<br/>' +
+                        'Stars: ' + (totalStars);
+    //play again button
   }
 }
 
@@ -171,8 +171,10 @@ span.onclick = function() {
 }
 
 
-
 /* Future Improvements
+Add Play Again Button
+Changes match.length to 8 !!!!
+Double check rubric
 Fix Timer Format to be 00:00
 Put stars on 1 line
 Add time limit
