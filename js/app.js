@@ -75,7 +75,7 @@ allCards.forEach(function(card) {
             openCards = [];
           }, 800);
           }
-            if (matches.length == 2) { //change to 8 - temp for easy testing
+            if (matches.length == 0) { //change to 8 - temp for easy testing
               console.log(matches.length);
               stars();
               clearInterval(interval);
@@ -128,19 +128,21 @@ function reset () {
 
 
 //STAR RATING
+var totalStars = document.getElementsByClassName('stars').push();
+
 function stars () {
   if (moves > 8 && moves < 13) {
-    console.log('3 stars');
+    totalStars = 3;
   } else if (moves > 13 && moves < 22) {
      document.getElementById('3').classList.remove('fa-star');
      document.getElementById('3').classList.add('fa-star-o');
-     console.log ("2 stars");
+     totalStars = 2;
   } else if (moves > 22 && moves < 30) {
     document.getElementById('3').classList.remove('fa-star');
     document.getElementById('3').classList.add('fa-star-o');
     document.getElementById('2').classList.remove('fa-star');
     document.getElementById('2').classList.add('fa-star-o');
-    console.log('1 star');
+    totalStars = 1;
   } else if (moves > 30){
     document.getElementById('3').classList.remove('fa-star');
     document.getElementById('3').classList.add('fa-star-o');
@@ -148,31 +150,39 @@ function stars () {
     document.getElementById('2').classList.add('fa-star-o');
     document.getElementById('1').classList.remove('fa-star');
     document.getElementById('1').classList.add('fa-star-o');
-    console.log('None :()');
+    totalStars = 0;
   }
 }
 
-
 //Congrats Modal
-var won = document.getElementById('won');
+var modal = document.getElementById('modalTime');
 var close = document.getElementsByClassName('close');
 var score = document.getElementById('score');
-var allScores = document.getElementsByClassName('allScores');
+
+//var allScores = document.getElementsByClassName('allScores');
 
 
 function congrats() {
-  won.style.display = "block";
-  score.innerHTML = allScores;
+  if (matches.length == 0) {
+  modal.style.display = 'block';
+  score.innerHTML =  'Time: ' + time + '<br/>' +
+                     'Moves: ' + moves + '<br/>' +
+                     'Stars: ' + totalStars;
+  }
 }
 
 close.onclick = function() {
   modal.style.display = "none";
 }
 
+
+
 /*
 TO DO:
-    Optional ?End game at time limit
+Modal popups w/ time, stars & moves & play again?
+
+Optional ?End game at time limit
 Fix Timer Format to be 00:00
-Add modal popups or alerts at Game End w/ time, stars & moves & play again?
+
 Update ReadMe
 Review code & comments against style guide */
