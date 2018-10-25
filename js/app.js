@@ -172,10 +172,8 @@ span.onclick = function() {
 
 
 /* Future Improvements
-Add Play Again Button
 Changes match.length to 8 !!!!
 Double check rubric
 Fix Timer Format to be 00:00
-Put stars on 1 line
 Add time limit
 Update ReadMe */
