@@ -48,7 +48,7 @@ function initGame() {
 initGame();
 
 //FLIP & MATCH Inspired by Udacity Webinar https://www.youtube.com/watch?v=_rUH-sEs68Y
-const allCards = document.querySelectorAll('.card');
+var allCards = document.querySelectorAll('.card');
 let openCards = [];
 let matches = [];
 
@@ -105,6 +105,10 @@ function gameTime() {
   }, 1000);
 }
 
+if (openCards === 1)
+second == 0;
+minute == 0;
+gameTime();
 
 //MOVE COUNTER
 moves = 0;
@@ -113,11 +117,6 @@ var moves = document.getElementById('moves').innerHTML
 function moveCounter( ) {
   moves++
   document.getElementById('moves').innerHTML = moves;
-  if (moves === 1) { //FIX The lag occurs because the timer starts when first card pair is clicked, instead of that start the timer on first card click.
-    second == 0;
-    minute == 0;
-    gameTime();
-  }
 }
 
 
