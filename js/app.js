@@ -60,6 +60,11 @@ allCards.forEach(function(card) {
         !card.classList.contains('match')) {
           openCards.push(card);
           card.classList.add('open', 'show');
+      if (openCards.length == 1) {
+        second == 0;
+        minute == 0;
+        gameTime();
+      }
       if (openCards.length == 2) {
         moveCounter();
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
@@ -91,7 +96,7 @@ allCards.forEach(function(card) {
 let second = 0;
 let minute = second / 60;
 var interval;
-let time = timer.innerHTML
+let time = timer.innerHTML;
 
 
 function gameTime() {
@@ -105,10 +110,6 @@ function gameTime() {
   }, 1000);
 }
 
-if (openCards === 1)
-second == 0;
-minute == 0;
-gameTime();
 
 //MOVE COUNTER
 moves = 0;
