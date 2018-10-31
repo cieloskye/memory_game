@@ -2,9 +2,10 @@
 
 ## Table of Contents
 
+* [About](#about)
 * [Instructions](#instructions)
 * [Contributing](#contributing)
-* [About](#about)
+
 
 ## About
 
@@ -28,5 +29,4 @@ Required dependencies: fontawesome
 
 This repository is a portfolio piece to demonstrate knowledge of JavaScript. Therefore, I most likely will not accept pull requests.
 
-Starter styling & html provided by Udacity.
-Any JavaScript functions from stackoverflow attributed in app.js file.
+Starter html and css provided by Udacity. JS contributions contributed with inline comments.
