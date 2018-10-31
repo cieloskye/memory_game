@@ -76,7 +76,6 @@ allCards.forEach(function(card) {
           }, 800);
           }
             if (matches.length == 8) {
-              console.log(matches.length);
               stars();
               clearInterval(interval);
               congrats();
@@ -93,6 +92,7 @@ let second = 0;
 let minute = second / 60;
 var interval;
 let time = timer.innerHTML
+
 
 function gameTime() {
   interval = setInterval (function() {
@@ -154,10 +154,12 @@ const span = document.getElementsByClassName('close')[0];
 const score = document.getElementById('score');
 const totalStars = document.querySelector('.stars li').innerHTML;
 
+
 function congrats() {
   if (matches.length == 8) {
     modal.style.display = 'block';
-    score.innerHTML =   'Time: ' + time + '<br/>' +  //FIX The time variable store initial value of the timer, not the updated value. Hence correct value is not displayed in modal box.
+    const final = document.getElementById('timer').innerHTML;
+    score.innerHTML =   'Time: ' + final + '<br/>' +
                         'Moves: ' + moves + '<br/>' +
                         'Stars: ' + (totalStars);
     //play again button
