@@ -18,3 +18,14 @@ For specific, detailed instructions, look at the project instructions in the [Ud
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
+Required
+About the game and author
+How to install the game locally (if hosted on github, how to clone the repository)
+How to play the game
+Required dependencies (such as jQuery, fontawesome)
+Suggestions
+Contributions (if any).
+License information (if any)
+Note - You should make use of markdown to make your README file

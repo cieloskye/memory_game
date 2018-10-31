@@ -1,5 +1,5 @@
 //CREATE CARDS
-var cards = ['fa-coffee', 'fa-coffee',
+let cards = ['fa-coffee', 'fa-coffee', //ES6 should be const
             'fa-battery-full', 'fa-battery-full',
             'fa-laptop', 'fa-laptop',
             'fa-terminal', 'fa-terminal',
@@ -113,7 +113,7 @@ var moves = document.getElementById('moves').innerHTML
 function moveCounter( ) {
   moves++
   document.getElementById('moves').innerHTML = moves;
-  if (moves === 1) {
+  if (moves === 1) { //FIX The lag occurs because the timer starts when first card pair is clicked, instead of that start the timer on first card click.
     second == 0;
     minute == 0;
     gameTime();
@@ -158,7 +158,7 @@ var totalStars = document.querySelector('.stars li').innerHTML;
 function congrats() {
   if (matches.length == 8) {
     modal.style.display = 'block';
-    score.innerHTML =   'Time: ' + time + '<br/>' +
+    score.innerHTML =   'Time: ' + time + '<br/>' +  //FIX The time variable store initial value of the timer, not the updated value. Hence correct value is not displayed in modal box.
                         'Moves: ' + moves + '<br/>' +
                         'Stars: ' + (totalStars);
     //play again button
