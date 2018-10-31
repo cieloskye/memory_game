@@ -4,28 +4,29 @@
 
 * [Instructions](#instructions)
 * [Contributing](#contributing)
+* [About](#about)
+
+## About
+
+Hello, and thank you for stopping this Memory Game built especially for developers!  
+I am a front-end developer located in the Los Angeles area with a strong background in media post production.
+
 
 ## Instructions
+You can clone this project by
+And you can play on your home computer by
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+How to play the game
+You play by click on cards, two at a time, trying to match pair in as few clicks, and as quickly as possible.
 
-To get started, open `js/app.js` and start building out the app's functionality
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+Required dependencies: fontawesome
+
+
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+This repository is a portfolio piece to demonstrate knowledge of JavaScript. Therefore, I most likely will not accept pull requests.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
-
-
-Required
-About the game and author
-How to install the game locally (if hosted on github, how to clone the repository)
-How to play the game
-Required dependencies (such as jQuery, fontawesome)
-Suggestions
-Contributions (if any).
-License information (if any)
-Note - You should make use of markdown to make your README file
+Starter styling & html provided by Udacity.
+Any JavaScript functions from stackoverflow attributed in app.js file.
