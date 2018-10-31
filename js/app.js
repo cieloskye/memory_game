@@ -1,5 +1,5 @@
 //CREATE CARDS
-let cards = ['fa-coffee', 'fa-coffee', //ES6 should be const
+const cards = ['fa-coffee', 'fa-coffee',
             'fa-battery-full', 'fa-battery-full',
             'fa-laptop', 'fa-laptop',
             'fa-terminal', 'fa-terminal',
@@ -15,7 +15,7 @@ function generateCard(card) {
 
 //SHUFFLE CARDS function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -30,11 +30,11 @@ function shuffle(array) {
 
 
 //START GAME Inspired by Udacity Webinar https://www.youtube.com/watch?v=_rUH-sEs68Y
-var timer = document.getElementById('timer');
+const timer = document.getElementById('timer');
 
 function initGame() {
-  var deck = document.querySelector('.deck');
-  var cardHTML = shuffle(cards).map(function(card) {
+  const deck = document.querySelector('.deck');
+  const cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
   deck.innerHTML = cardHTML.join('');
@@ -48,9 +48,9 @@ function initGame() {
 initGame();
 
 //FLIP & MATCH Inspired by Udacity Webinar https://www.youtube.com/watch?v=_rUH-sEs68Y
-var allCards = document.querySelectorAll('.card');
-var openCards = [];
-var matches = [];
+const allCards = document.querySelectorAll('.card');
+let openCards = [];
+let matches = [];
 
 allCards.forEach(function(card) {
   card.addEventListener('click', function(e) {
@@ -89,10 +89,10 @@ allCards.forEach(function(card) {
 
 
 //TIMER
-var second = 0;
-var minute = second / 60;
+let second = 0;
+let minute = second / 60;
 var interval;
-var time = timer.innerHTML
+let time = timer.innerHTML
 
 function gameTime() {
   interval = setInterval (function() {
@@ -150,10 +150,10 @@ function stars() {
 }
 
 //Congrats Modal
-var modal = document.getElementById('modalTime');
-var span = document.getElementsByClassName('close')[0];
-var score = document.getElementById('score');
-var totalStars = document.querySelector('.stars li').innerHTML;
+const modal = document.getElementById('modalTime');
+const span = document.getElementsByClassName('close')[0];
+const score = document.getElementById('score');
+const totalStars = document.querySelector('.stars li').innerHTML;
 
 function congrats() {
   if (matches.length == 8) {
