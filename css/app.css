@@ -35,6 +35,10 @@ h1 {
     font-weight: 300;
 }
 
+header {
+  text-align: center;
+
+}
 /*
  * Styles for the deck of cards
  */
