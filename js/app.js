@@ -43,14 +43,19 @@ function initGame() {
   //reset timer
   timer.innerHTML = "0:0";
   clearInterval(interval);
-}
+  //start timer
+    if ((timer.seconds == 0) && (timer.minutes == 0) && (openCards.length == 1)) {
+          gameTime();
+          console.log('gameTime');
+        }
+      }
 
 initGame();
 
 //FLIP & MATCH Inspired by Udacity Webinar https://www.youtube.com/watch?v=_rUH-sEs68Y
-var allCards = document.querySelectorAll('.card');
 let openCards = [];
 let matches = [];
+var allCards = document.querySelectorAll('.card');
 
 allCards.forEach(function(card) {
   card.addEventListener('click', function(e) {
@@ -60,11 +65,6 @@ allCards.forEach(function(card) {
         !card.classList.contains('match')) {
           openCards.push(card);
           card.classList.add('open', 'show');
-      if (openCards.length == 1) {
-        second == 0;
-        minute == 0;
-        gameTime();
-      }
       if (openCards.length == 2) {
         moveCounter();
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
@@ -79,13 +79,12 @@ allCards.forEach(function(card) {
             });
             openCards = [];
           }, 800);
+        }
+          if (matches.length == 8) {
+            stars();
+            clearInterval(interval);
+            congrats();
           }
-            if (matches.length == 8) {
-              stars();
-              clearInterval(interval);
-              congrats();
-            }
-
         }
       }
   });
@@ -97,18 +96,19 @@ let second = 0;
 let minute = second / 60;
 var interval;
 let time = timer.innerHTML;
-
+deck = document.getElementsByClassName('deck');
 
 function gameTime() {
   interval = setInterval (function() {
     timer.innerHTML = minute + ':' + second;
-    second++;
-    if (second == 60) {
-      second = 0;
-      minute++;
-    }
+      second++;
+      if (second == 60) {
+        second = 0;
+        minute++;
+      }
   }, 1000);
 }
+
 
 
 //MOVE COUNTER
@@ -125,6 +125,7 @@ function moveCounter( ) {
 function reset () {
   window.location.reload();
 }
+
 
 
 //STAR RATING
